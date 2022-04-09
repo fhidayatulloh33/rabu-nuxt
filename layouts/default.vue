@@ -16,7 +16,7 @@ export default {
   // Dideklarasikan agar dapat diakses oleh template
   components: {
     Header,
-    Footer,
+    Footer
   },
 };
 </script>
