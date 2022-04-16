@@ -1,10 +1,10 @@
 <template>
   <div
+    v-if="!task.isDone || isShow"
     :class="[
       'item-task d-flex align-items-start border-bottom pt-3 pb-4',
       isGrid ? 'col-12 col-md-6 col-lg-4' : 'col-12',
     ]"
-    v-if="!isCreating"
   >
     <input
       type="checkbox"
@@ -13,7 +13,6 @@
       class="me-2 mt-2"
       :checked="task.isDone"
       v-model="task.isDone"
-      
     />
     <div
       :class="[
@@ -23,34 +22,34 @@
     >
       <div class="title-task mb-1">
         {{ task.title }}
-      </div>
-      <div class="title-task mb-1">
-        {{ task.category }}
+        <span class="badge bg-danger">{{ task.category }}</span>
       </div>
       <div class="description-task small text-muted">
         {{ task.description }}
       </div>
+      <input class="form-control form-control-sm" type="date" />
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
     task: {
       type: Object,
-      default:{
-          title: "default",
-          category: "default",
-          description: "default",
-          isDone: false,
-        },
+      default: {
+        id:0,
+        title: "Untitled",
+        description: " Undescribe",
+        isDone: false,
+        category: "",
+      },
     },
     isGrid: {
       type: Boolean,
       required: true,
       default: false,
     },
+    isShow: false,
   },
 };
 </script>
