@@ -173,6 +173,7 @@ export default {
       cat: "Nothing selected",
       isShow: false,
       isLoading: true,
+      sort: "",
       form: {
         id:"",
         title: "",
