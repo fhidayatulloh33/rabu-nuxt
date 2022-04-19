@@ -21,7 +21,9 @@
       ]"
     >
       <div class="title-task mb-1">
-        {{ task.title }}
+        <nuxt-link class="title-task mb-1" :to="'app/detail/' + task.id">
+          {{ task.title }}
+        </nuxt-link>
         <span class="badge bg-danger">{{ task.category }}</span>
       </div>
       <div class="description-task small text-muted">
@@ -37,7 +39,7 @@ export default {
     task: {
       type: Object,
       default: {
-        id:0,
+        id: 0,
         title: "Untitled",
         description: " Undescribe",
         isDone: false,
